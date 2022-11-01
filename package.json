@@ -1,7 +1,7 @@
 {
-	"name": "cogo-toast",
+	"name": "idx-cogo-toast",
 	"description": "Beautiful, Zero Configuration, Toast Messages - Built with React",
-	"version": "4.2.4",
+	"version": "4.2.5",
 	"license": "MIT",
 	"scripts": {
 		"setup": "yarn install && cd docs && yarn install",
@@ -19,8 +19,8 @@
 	},
 	"peerDependencies": {
 		"prop-types": "^15.6.2",
-		"react": "^16.8.0 || ^17.0.0",
-		"react-dom": "^16.8.0 || ^17.0.0"
+		"react": ">18.0.0",
+		"react-dom": ">18.0.0"
 	},
 	"devDependencies": {
 		"@babel/core": "7.9.6",
@@ -75,11 +75,11 @@
 	],
 	"homepage": "https://cogoport.github.io/cogo-toast/",
 	"bugs": {
-		"url": "https://github.com/Cogoport/cogo-toast/issues"
+		"url": "https://github.com/ankit-indexnine/cogo-toast/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Cogoport/cogo-toast.git"
+		"url": "git+https://github.com/ankit-indexnine/cogo-toast.git"
 	},
 	"keywords": [
 		"react",

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 
 import ToastContainer from './components/ToastContainer';
 import Toast from './components/Toast';
@@ -9,6 +9,7 @@ import { CToast, CTReturn } from '../index.d';
 import './styles/styles.css';
 
 let ctToastCount = 0;
+let root;
 
 const cogoToast: CToast = (text, options?) => {
 	let rootContainer = document.getElementById(options?.toastContainerID || 'ct-container');
@@ -19,15 +20,19 @@ const cogoToast: CToast = (text, options?) => {
 		document.body.appendChild(rootContainer);
 	}
 
+	if(ctToastCount === 0){
+		root = ReactDOM.createRoot(rootContainer);
+	}
+
 	ctToastCount += 1;
 
 	const hideTime = (options?.hideAfter === undefined ? 3 : options.hideAfter) * 1000;
 	const toast = { id: ctToastCount, text, ...options };
 
-	ReactDOM.render(<ToastContainer toast={toast} />, rootContainer);
+	root.render(<ToastContainer toast={toast} />);
 
 	const hide = () => {
-		ReactDOM.render(<ToastContainer hiddenID={toast.id} />, rootContainer);
+		root.render(<ToastContainer hiddenID={toast.id} />);
 	};
 
 	const completePromise: CTReturn = new Promise<void>((resolve) => {
